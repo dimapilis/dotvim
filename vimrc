@@ -4,29 +4,51 @@ call pathogen#helptags()
 syntax on
 color molokai " set color scheme
 
+" we want a modern vim mode not ancient vi
 set nocompatible
-set tabstop=2 " tab = 2 spaces
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set number " show line numbers
-set shiftwidth=2 " number of spaces used for autoindenting
-set showmatch " show matching paranthesis
-set ignorecase " ignore case when searching
-set smartcase " ignore case if search pattern is all lowercase
-set smarttab " insert tabs on start of line according to shiftwidth
-set hlsearch " highlight search terms
-set incsearch " show search matches as you type
-set showcmd " show command line
+ 
+  " File-type highlighting and configuration.
+  " Run :filetype (without args) to see what you may have
+  " to turn on yourself, or just set them all to be sure.
+syntax on
+filetype on
+filetype plugin on
+filetype indent on
+ 
+  " allow hidden buffers
+set hidden
+ 
+  " Intuitive backspacing in insert mode
+set backspace=indent,eol,start
 
-" fold settings
-set foldmethod=syntax " fold based on indent
-set nofoldenable " dont fold by default
+" Basic stuff that make life easier
+set autoindent
+set encoding=utf-8
+set history=1000   "default is only 20
+set laststatus=2   " always show status bar
+set showmode
+set showcmd
+set ruler         " show the cursor position
+set scrolloff=3   " scroll before the cursor reaches the bottom/top
+ 
+  " make tab complete command useful
+set wildmenu
+set wildmode=list:longest
 
-" navigating tabs
-:nmap <C-S-tab> :tabprevious<CR>
-:nmap <C-tab> :tabnext<CR>
-:map <C-S-tab> :tabprevious<CR>
-:map <C-tab> :tabnext<CR>
-:imap <C-S-tab> <Esc>:tabprevious<CR>i
-:imap <C-tab> <Esc>:tabnext<CR>i
-:nmap <C-t> :tabnew<CR>
-:imap <C-t> <Esc>:tabnew<CR>
+" where am i?
+set cursorline
+set number                     " show line numbers
+"search
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+
+" more stuff in the status line
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
