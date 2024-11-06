@@ -1,24 +1,16 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
+" Set color scheme
 syntax on
 color molokai " set color scheme
 
-" we want a modern vim mode not ancient vi
-set nocompatible
- 
-  " File-type highlighting and configuration.
-  " Run :filetype (without args) to see what you may have
-  " to turn on yourself, or just set them all to be sure.
-syntax on
+" Set filetype
 filetype on
 filetype plugin on
 filetype indent on
  
-  " allow hidden buffers
+" Switch between buffers without saving
 set hidden
  
-  " Intuitive backspacing in insert mode
+" Intuitive backspacing in insert mode
 set backspace=indent,eol,start
 
 " Basic stuff that make life easier
@@ -31,24 +23,24 @@ set showcmd
 set ruler         " show the cursor position
 set scrolloff=3   " scroll before the cursor reaches the bottom/top
  
-  " make tab complete command useful
+" Make tab complete command useful
 set wildmenu
 set wildmode=list:longest
 
-" where am i?
-set cursorline
-set number                     " show line numbers
-"search
+" Where am I?
+set number
+
+" Search
 set ignorecase
 set smartcase
 set incsearch
 set showmatch
 set hlsearch
 
-" more stuff in the status line
+" More stuff in the status line
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
 
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+" Soft tabs over hard tabs
+set tabstop=4
+set shiftwidth=4
 set expandtab
